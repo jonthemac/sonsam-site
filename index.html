@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sonsam — We saved you a seat</title>
+<meta name="description" content="Sonsam is a WhatsApp-based support community for first-year university students in Ghana: somewhere to vent, answers at 3 am, and evidence-based tools to manage your thoughts, feelings and emotions.">
+<link rel="icon" href="assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=Caveat:wght@600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#0E1B1F}a:hover{color:#0E1B1F}
+.wrap{max-width:1200px;margin:0 auto;padding-left:24px;padding-right:24px}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.cols3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.cols2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.nav-links{display:flex;gap:36px;align-items:center}
+.hero-photo{position:relative;height:660px}
+.hero-img{display:block;width:100%;height:640px;object-fit:cover;border-radius:36px;border:5px solid #0E1B1F;box-shadow:16px 16px 0 #0E1B1F}
+.btn{display:inline-flex;align-items:center;gap:14px;text-decoration:none;font-weight:800;font-size:20px;padding:20px 30px;border-radius:999px;min-height:44px;box-sizing:border-box;letter-spacing:-0.01em}
+.btn-ink{background:#0E1B1F;color:#F6F1E7 !important}
+.btn-ink:hover{background:#1f3238}
+.btn-ivory{background:#F6F1E7;color:#0E1B1F !important;border:4px solid #0E1B1F}
+.btn-ivory:hover{background:#ffffff}
+.btn-green{background:#24CC78;color:#0E1B1F !important}
+.btn-green:hover{background:#3fe08f}
+.h1{font-weight:900;font-size:92px;line-height:0.95;letter-spacing:-0.05em;margin:0}
+.h2{font-weight:900;font-size:60px;line-height:0.98;letter-spacing:-0.045em;margin:0}
+.ticker{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.pill{border:4px solid #0E1B1F;border-radius:999px;padding:12px 22px;font-weight:800;font-size:20px;letter-spacing:-0.01em;white-space:nowrap}
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr}
+  .cols3,.cols2{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .hero-photo{height:auto}
+  .hero-img{height:420px}
+  .h1{font-size:54px}
+  .h2{font-size:40px}
+  .pill{font-size:17px;padding:10px 18px}
+}
+
+/* motion */
+@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;transform:scale(.8) rotate(-10deg)}to{opacity:1;transform:none}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.hero-in{animation:rise .8s cubic-bezier(.2,.8,.2,1) both;animation-delay:var(--d,0s)}
+.hero-pop{animation:pop .9s cubic-bezier(.2,.9,.3,1.3) both;animation-delay:var(--d,0s)}
+.motion .reveal{opacity:0;transform:translateY(32px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
+.motion .reveal.in{opacity:1;transform:none}
+.motion .reveal-tilt{opacity:0;transform:translateY(40px) rotate(0deg) !important;transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.9,.3,1.2);transition-delay:var(--d,0s)}
+.motion .reveal-tilt.in{opacity:1;transform:var(--tilt,none) !important}
+.lift{transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s}
+.lift:hover{transform:translate(-4px,-6px) var(--tilt,rotate(0deg)) !important;box-shadow:18px 18px 0 #0E1B1F !important}
+.btn{transition:transform .2s cubic-bezier(.2,.8,.2,1),background .2s}
+.btn:hover{transform:translateY(-3px)}
+.marquee{overflow:hidden}
+.marquee-track{display:flex;gap:14px;width:max-content;animation:marquee 32s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+@media (prefers-reduced-motion:reduce){
+  .hero-in,.hero-pop,.marquee-track{animation:none}
+  .motion .reveal,.motion .reveal-tilt{opacity:1;transform:var(--tilt,none) !important;transition:none}
+}
+</style>
+</head>
+<body>
+<div data-sonsam-root="1" style="background: #F6F1E7; color: #0E1B1F; font-family: Inter, sans-serif; display: flex; flex-direction: column">
+
+  <!-- NAV -->
+  <header style="background: #F6F1E7; border-bottom: 4px solid #0E1B1F">
+    <div class="wrap" style="display: flex; justify-content: space-between; align-items: center; padding-top: 20px; padding-bottom: 20px">
+      <a href="#top" style="display: flex; align-items: center; gap: 14px; text-decoration: none">
+        <img src="assets/icon.png" alt="" style="display: block; height: 48px; width: auto">
+        <img src="assets/wordmark_ink.png" alt="Sonsam" style="display: block; height: 30px; width: auto">
+      </a>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="#what" style="text-decoration: none; font-weight: 700; font-size: 18px">What we do</a>
+        <a href="#fun" style="text-decoration: none; font-weight: 700; font-size: 18px">The fun part</a>
+        <a href="#science" style="text-decoration: none; font-weight: 700; font-size: 18px">The science bit</a>
+        <a href="#partners" style="text-decoration: none; font-weight: 700; font-size: 18px">Partners</a>
+      </nav>
+      <a class="btn btn-green" href="https://wa.me/233596993466?text=hey" style="padding: 14px 24px; font-size: 18px; border: 4px solid #0E1B1F">
+        <img src="assets/wa_ink.svg" alt="" style="display: block; width: 24px; height: 24px">
+        Chat on WhatsApp</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" style="background: #24CC78; padding-top: 80px; padding-bottom: 100px; overflow: hidden">
+    <div class="wrap hero-grid">
+      <div style="display: flex; flex-direction: column; gap: 30px; align-items: flex-start">
+        <div class="hero-in" style="--d: 0s; display: inline-block; background: #0E1B1F; color: #F6F1E7; border-radius: 999px; padding: 10px 20px; font-weight: 800; font-size: 15px; letter-spacing: 0.12em">FOR LEVEL 100s IN GHANA</div>
+        <h1 class="h1 hero-in" style="--d: .1s">Uni is about to be a lot. The good kind, mostly.</h1>
+        <p class="hero-in" style="--d: .2s; margin: 0; font-weight: 600; font-size: 23px; line-height: 1.45; max-width: 560px">New room, new people, new freedom. It's exciting. It's also a bit much sometimes, and asking for help can feel awkward. Sonsam is the friend who's awake at 3 am: somewhere to vent, somewhere to ask anything, and somewhere to learn how to handle your own head.</p>
+        <div class="hero-in" style="--d: .3s; display: flex; flex-wrap: wrap; gap: 16px">
+          <a class="btn btn-ink" href="https://wa.me/233596993466?text=hey">
+            <img src="assets/wa_ivory.svg" alt="" style="display: block; width: 24px; height: 24px">
+            Chat with Sonsam on WhatsApp</a>
+          <a class="btn btn-ivory" href="https://instagram.com/we.are.sonsam">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.3" fill="currentColor"/></svg>
+            @we.are.sonsam</a>
+        </div>
+        <div class="hero-in" style="--d: .4s; display: flex; align-items: center; gap: 16px">
+          <div style="width: 110px; height: 12px; background: #0E1B1F; border-radius: 8px; transform: rotate(-2deg)"></div>
+          <div style="font-family: Caveat, cursive; font-weight: 700; font-size: 34px; line-height: 1">free. private. no sign-up.</div>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img class="hero-img hero-in" style="--d: .15s" src="assets/hero_students.jpg" alt="Three students laughing together on campus in the evening">
+        <div class="hero-pop" style="--d: .6s; position: absolute; left: -28px; bottom: 36px; background: #F6F1E7; border: 5px solid #0E1B1F; border-radius: 26px; padding: 22px 30px; box-shadow: 12px 12px 0 #0E1B1F; transform: rotate(-4deg); font-weight: 900; font-size: 40px; line-height: 0.95; letter-spacing: -0.04em">we saved<br>you a seat.</div>
+        <img class="hero-pop" src="assets/icon.png" alt="" style="--d: .8s; position: absolute; right: -30px; top: -34px; width: 150px; height: auto; transform: rotate(8deg)">
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <section style="background: #0E1B1F; padding-top: 28px; padding-bottom: 28px; border-top: 4px solid #0E1B1F">
+    <div class="marquee"><div class="marquee-track">
+<div class="pill" style="background: #F6C444">first-day fits</div>
+      <div class="pill" style="background: #A79BF0">roommate you've never met</div>
+      <div class="pill" style="background: #24CC78">3 am study sessions</div>
+      <div class="pill" style="background: #F5694B">hall jollof debates</div>
+      <div class="pill" style="background: #F6F1E7">nobody knows your SHS nickname</div>
+      <div class="pill" style="background: #F6C444">registration queue</div>
+      <div class="pill" style="background: #24CC78">finding your people</div>
+<div class="pill" style="background: #F6C444">first-day fits</div>
+      <div class="pill" style="background: #A79BF0">roommate you've never met</div>
+      <div class="pill" style="background: #24CC78">3 am study sessions</div>
+      <div class="pill" style="background: #F5694B">hall jollof debates</div>
+      <div class="pill" style="background: #F6F1E7">nobody knows your SHS nickname</div>
+      <div class="pill" style="background: #F6C444">registration queue</div>
+      <div class="pill" style="background: #24CC78">finding your people</div>
+</div></div>
+  </section>
+
+  <!-- WHAT YOU GET -->
+  <section id="what" style="padding-top: 110px; padding-bottom: 110px">
+    <div class="wrap" style="display: flex; flex-direction: column; gap: 56px">
+      <div class="reveal" style="display: flex; flex-direction: column; gap: 20px; max-width: 820px">
+        <div style="font-weight: 800; font-size: 15px; letter-spacing: 0.14em">WHAT SONSAM IS</div>
+        <h2 class="h2">Everything you need to have a good first year. In one chat.</h2>
+        <p style="margin: 0; font-weight: 500; font-size: 22px; line-height: 1.5">Sonsam lives on WhatsApp, in the app you already open a hundred times a day. Level 100 is hard for almost everyone. Nobody should have to figure it out alone.</p>
+      </div>
+      <div class="cols3">
+        <div class="reveal-tilt lift" style="--tilt: rotate(-1deg); --d: 0.00s; background: #A79BF0; border: 5px solid #0E1B1F; border-radius: 28px; padding: 36px; box-shadow: 12px 12px 0 #0E1B1F; display: flex; flex-direction: column; gap: 20px; transform: rotate(-1deg)">
+          <svg width="56" height="56" viewBox="0 0 56 56" fill="none" aria-hidden="true"><path d="M28 48s-18-10-18-24a10 10 0 0118-6 10 10 0 0118 6c0 14-18 24-18 24z" stroke="#0E1B1F" stroke-width="4" stroke-linejoin="round"/></svg>
+          <h3 style="margin: 0; font-weight: 900; font-size: 30px; line-height: 1.05; letter-spacing: -0.035em">Somewhere to vent</h3>
+          <p style="margin: 0; font-weight: 500; font-size: 19px; line-height: 1.5">The stuff you can't put in the group chat or say to your mum. No judgement, no lecture, and nobody in your hall will hear about it.</p>
+        </div>
+        <div class="reveal-tilt lift" style="--tilt: rotate(1deg); --d: 0.12s; background: #F6C444; border: 5px solid #0E1B1F; border-radius: 28px; padding: 36px; box-shadow: 12px 12px 0 #0E1B1F; display: flex; flex-direction: column; gap: 20px; transform: rotate(1deg)">
+          <svg width="56" height="56" viewBox="0 0 56 56" fill="none" aria-hidden="true"><path d="M34 8a20 20 0 1014 34 16 16 0 01-14-34z" stroke="#0E1B1F" stroke-width="4" stroke-linejoin="round"/><path d="M42 6v8M38 10h8" stroke="#0E1B1F" stroke-width="4" stroke-linecap="round"/></svg>
+          <h3 style="margin: 0; font-weight: 900; font-size: 30px; line-height: 1.05; letter-spacing: -0.035em">Answers at 3 am</h3>
+          <p style="margin: 0; font-weight: 500; font-size: 19px; line-height: 1.5">Lost on campus, lost in a course, lost in your feelings. Ask anything, at any hour, when nobody else is awake.</p>
+        </div>
+        <div class="reveal-tilt lift" style="--tilt: rotate(-1deg); --d: 0.24s; background: #24CC78; border: 5px solid #0E1B1F; border-radius: 28px; padding: 36px; box-shadow: 12px 12px 0 #0E1B1F; display: flex; flex-direction: column; gap: 20px; transform: rotate(-1deg)">
+          <svg width="56" height="56" viewBox="0 0 56 56" fill="none" aria-hidden="true"><circle cx="28" cy="28" r="20" stroke="#0E1B1F" stroke-width="4"/><path d="M18 30c3 5 7 7 10 7s7-2 10-7" stroke="#0E1B1F" stroke-width="4" stroke-linecap="round"/><path d="M20 22h4M32 22h4" stroke="#0E1B1F" stroke-width="4" stroke-linecap="round"/></svg>
+          <h3 style="margin: 0; font-weight: 900; font-size: 30px; line-height: 1.05; letter-spacing: -0.035em">Skills for your head</h3>
+          <p style="margin: 0; font-weight: 500; font-size: 19px; line-height: 1.5">Two-minute exercises for the overthinking, the nerves and the homesickness. Learn to manage your thoughts, feelings and emotions, between lectures.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE FUN PART -->
+  <section id="fun" style="background: #F5694B; border-top: 4px solid #0E1B1F; border-bottom: 4px solid #0E1B1F; padding-top: 110px; padding-bottom: 110px; overflow: hidden">
+    <div class="wrap" style="display: flex; flex-direction: column; gap: 56px">
+      <div class="cols2" style="align-items: end">
+        <div class="reveal" style="display: flex; flex-direction: column; gap: 20px">
+          <div style="font-weight: 800; font-size: 15px; letter-spacing: 0.14em">THE FUN PART</div>
+          <h2 class="h2">First year is also the best year. We're here for that too.</h2>
+        </div>
+        <p class="reveal" style="--d: .15s; margin: 0; font-weight: 500; font-size: 22px; line-height: 1.5">Fits, friendships, freedom, and the small moves that make people glad they met you. Follow along on Instagram for the good stuff, not just the serious stuff.</p>
+      </div>
+      <div class="cols3">
+        <div class="reveal-tilt lift" style="--tilt: rotate(-2deg); --d: 0.00s; background: #24CC78; border: 5px solid #0E1B1F; border-radius: 28px; padding: 34px; box-shadow: 12px 12px 0 #0E1B1F; display: flex; flex-direction: column; justify-content: space-between; gap: 40px; min-height: 340px; transform: rotate(-2deg)">
+          <div style="font-weight: 900; font-size: 36px; line-height: 0.98; letter-spacing: -0.045em">How to make a good first impression at uni</div>
+          <div style="font-family: Caveat, cursive; font-weight: 700; font-size: 30px; line-height: 1">7 small things that make people glad they met you</div>
+        </div>
+        <div class="reveal-tilt lift" style="--tilt: rotate(1.5deg); --d: 0.12s; background: #F6F1E7; border: 5px solid #0E1B1F; border-radius: 28px; padding: 34px; box-shadow: 12px 12px 0 #0E1B1F; display: flex; flex-direction: column; justify-content: space-between; gap: 40px; min-height: 340px; transform: rotate(1.5deg)">
+          <div style="font-weight: 900; font-size: 36px; line-height: 0.98; letter-spacing: -0.045em">Nobody at uni knows your SHS nickname.</div>
+          <div style="font-family: Caveat, cursive; font-weight: 700; font-size: 30px; line-height: 1">you get to decide who you are here</div>
+        </div>
+        <div class="reveal-tilt lift" style="--tilt: rotate(-1deg); --d: 0.24s; position: relative; background: #F6C444; border: 5px solid #0E1B1F; border-radius: 28px; padding: 16px 16px 12px; box-shadow: 12px 12px 0 #0E1B1F; display: flex; flex-direction: column; gap: 14px; min-height: 340px; transform: rotate(-1deg)">
+          <img src="assets/first_day_fit.jpg" alt="Student in a first-day outfit waving on the stairs" style="display: block; width: 100%; height: 250px; object-fit: cover; border-radius: 16px; border: 4px solid #0E1B1F">
+          <div style="font-weight: 900; font-size: 34px; line-height: 1; letter-spacing: -0.045em; padding: 0 8px">First-day fits</div>
+        </div>
+      </div>
+      <div class="reveal" style="--d: .3s; display: flex; flex-wrap: wrap; gap: 16px; align-items: center">
+        <a class="btn btn-ink" href="https://instagram.com/we.are.sonsam">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.3" fill="currentColor"/></svg>
+          Follow @we.are.sonsam</a>
+        <div style="font-family: Caveat, cursive; font-weight: 700; font-size: 32px">post your first-day fit and tag us</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section style="padding-top: 110px; padding-bottom: 110px">
+    <div class="wrap" style="display: flex; flex-direction: column; gap: 56px">
+      <div class="reveal" style="display: flex; flex-direction: column; gap: 20px; max-width: 760px">
+        <div style="font-weight: 800; font-size: 15px; letter-spacing: 0.14em">HOW IT WORKS</div>
+        <h2 class="h2">Three steps. No forms, no waiting room.</h2>
+      </div>
+      <div class="cols3">
+        <div class="reveal" style="--d: 0.00s; display: flex; flex-direction: column; gap: 22px">
+          <div style="width: 96px; height: 96px; border-radius: 999px; background: #24CC78; border: 5px solid #0E1B1F; box-shadow: 8px 8px 0 #0E1B1F; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 40px; letter-spacing: -0.04em">1</div>
+          <h3 style="margin: 0; font-weight: 900; font-size: 28px; line-height: 1.1; letter-spacing: -0.035em">Say hi on WhatsApp</h3>
+          <p style="margin: 0; font-weight: 500; font-size: 19px; line-height: 1.5">Tap the button, send “hi”, and you're in. No sign-up, no app store, no forms.</p>
+        </div>
+        <div class="reveal" style="--d: 0.12s; display: flex; flex-direction: column; gap: 22px">
+          <div style="width: 96px; height: 96px; border-radius: 999px; background: #F6C444; border: 5px solid #0E1B1F; box-shadow: 8px 8px 0 #0E1B1F; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 40px; letter-spacing: -0.04em">2</div>
+          <h3 style="margin: 0; font-weight: 900; font-size: 28px; line-height: 1.1; letter-spacing: -0.035em">Tell us what's going on</h3>
+          <p style="margin: 0; font-weight: 500; font-size: 19px; line-height: 1.5">Vent, ask a question, or pick a topic: stress, homesickness, money, friends, exams, the roommate situation.</p>
+        </div>
+        <div class="reveal" style="--d: 0.24s; display: flex; flex-direction: column; gap: 22px">
+          <div style="width: 96px; height: 96px; border-radius: 999px; background: #A79BF0; border: 5px solid #0E1B1F; box-shadow: 8px 8px 0 #0E1B1F; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 40px; letter-spacing: -0.04em">3</div>
+          <h3 style="margin: 0; font-weight: 900; font-size: 28px; line-height: 1.1; letter-spacing: -0.035em">Get a real next step</h3>
+          <p style="margin: 0; font-weight: 500; font-size: 19px; line-height: 1.5">An answer, a two-minute exercise, or a person to talk to. Come back whenever you need.</p>
+        </div>
+      </div>
+      <div class="reveal" style="--d: .3s; display: flex; flex-wrap: wrap; gap: 16px; align-items: center">
+        <a class="btn btn-green" href="https://wa.me/233596993466?text=hey" style="border: 4px solid #0E1B1F">
+          <img src="assets/wa_ink.svg" alt="" style="display: block; width: 24px; height: 24px">
+          Start chatting with Sonsam</a>
+        <div style="font-family: Caveat, cursive; font-weight: 700; font-size: 30px">it's free, and it's just for you</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE SCIENCE BIT -->
+  <section id="science" style="background: #0E1B1F; color: #F6F1E7; padding-top: 110px; padding-bottom: 110px">
+    <div class="wrap" style="display: flex; flex-direction: column; gap: 56px">
+      <div class="cols2" style="align-items: start">
+        <div class="reveal" style="display: flex; flex-direction: column; gap: 24px">
+          <div style="font-weight: 800; font-size: 15px; letter-spacing: 0.14em; color: #24CC78">THE SCIENCE BIT</div>
+          <h2 class="h2">Behind the stickers, we take this seriously.</h2>
+          <div style="width: 140px; height: 12px; background: #24CC78; border-radius: 8px; transform: rotate(-2deg)"></div>
+        </div>
+        <div class="reveal" style="--d: .15s; display: flex; flex-direction: column; gap: 20px">
+          <p style="margin: 0; font-weight: 500; font-size: 22px; line-height: 1.55">Sonsam has adapted cutting-edge mental-health interventions from <strong>The Lab for Scalable Mental Health at Northwestern University</strong> in the USA, and reshaped them around the language, pressures and rhythms of campus life in Ghana.</p>
+          <p style="margin: 0; font-weight: 500; font-size: 22px; line-height: 1.55">Students get them through the Sonsam chat on WhatsApp, so real, tested tools live inside the app they already use, with no new download and no waiting list.</p>
+        </div>
+      </div>
+      <div class="cols3">
+        <div class="reveal" style="--d: 0.00s; border: 4px solid #F6F1E7; border-radius: 24px; padding: 32px; display: flex; flex-direction: column; gap: 14px">
+          <div style="font-family: Caveat, cursive; font-weight: 700; font-size: 34px; color: #F6C444">Evidence-based</div>
+          <p style="margin: 0; font-weight: 500; font-size: 18px; line-height: 1.5">Interventions developed and tested by researchers at Northwestern's Lab for Scalable Mental Health, adapted for our context.</p>
+        </div>
+        <div class="reveal" style="--d: 0.12s; border: 4px solid #F6F1E7; border-radius: 24px; padding: 32px; display: flex; flex-direction: column; gap: 14px">
+          <div style="font-family: Caveat, cursive; font-weight: 700; font-size: 34px; color: #24CC78">Where students already are</div>
+          <p style="margin: 0; font-weight: 500; font-size: 18px; line-height: 1.5">It runs on WhatsApp, works on any phone, and is there at 3 am. No app to download, no account to make.</p>
+        </div>
+        <div class="reveal" style="--d: 0.24s; border: 4px solid #F6F1E7; border-radius: 24px; padding: 32px; display: flex; flex-direction: column; gap: 14px">
+          <div style="font-family: Caveat, cursive; font-weight: 700; font-size: 34px; color: #A79BF0">Not a replacement for care</div>
+          <p style="margin: 0; font-weight: 500; font-size: 18px; line-height: 1.5">When someone needs more than we can give, we point them to their campus counselling centre and emergency support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section id="partners" style="background: #F6C444; border-bottom: 4px solid #0E1B1F; padding-top: 110px; padding-bottom: 110px">
+    <div class="wrap" style="display: flex; flex-direction: column; gap: 48px">
+      <div class="reveal" style="display: flex; flex-direction: column; gap: 20px; max-width: 820px">
+        <div style="font-weight: 800; font-size: 15px; letter-spacing: 0.14em">FOR UNIVERSITIES &amp; PARTNERS</div>
+        <h2 class="h2">Give every first-year a friend from day one.</h2>
+        <p style="margin: 0; font-weight: 500; font-size: 22px; line-height: 1.5">We work alongside counselling centres, student affairs teams and the services students rely on. If you support young people in Ghana, we'd like to talk.</p>
+      </div>
+      <div class="cols2">
+        <div class="reveal" style="--d: 0.00s; background: #F6F1E7; border: 5px solid #0E1B1F; border-radius: 28px; padding: 36px; box-shadow: 12px 12px 0 #0E1B1F; display: flex; flex-direction: column; gap: 16px">
+          <h3 style="margin: 0; font-weight: 900; font-size: 28px; letter-spacing: -0.035em">Universities</h3>
+          <p style="margin: 0; font-weight: 500; font-size: 19px; line-height: 1.5">Extend your student-support capacity without adding to your counsellors' caseload. Evidence-based self-help for the many, clear signposting to you for the few who need more.</p>
+        </div>
+        <div class="reveal" style="--d: 0.12s; background: #F6F1E7; border: 5px solid #0E1B1F; border-radius: 28px; padding: 36px; box-shadow: 12px 12px 0 #0E1B1F; display: flex; flex-direction: column; gap: 16px">
+          <h3 style="margin: 0; font-weight: 900; font-size: 28px; letter-spacing: -0.035em">Service providers</h3>
+          <p style="margin: 0; font-weight: 500; font-size: 19px; line-height: 1.5">Reach students where they already are, through a brand they trust, with a partner that puts their wellbeing first.</p>
+        </div>
+      </div>
+      <div class="reveal" style="--d: .25s">
+        <a class="btn btn-ink" href="mailto:hello@wearesonsam.org">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3" stroke="currentColor" stroke-width="2"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          Email the partnerships team</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background: #0E1B1F; color: #F6F1E7; padding-top: 72px; padding-bottom: 48px">
+    <div class="wrap" style="display: flex; flex-direction: column; gap: 48px">
+      <div class="cols2" style="align-items: end">
+        <div style="display: flex; flex-direction: column; gap: 22px; align-items: flex-start">
+          <div style="display: flex; align-items: center; gap: 16px">
+            <img src="assets/icon.png" alt="" style="display: block; height: 64px; width: auto">
+            <img src="assets/wordmark_ivory.png" alt="Sonsam" style="display: block; height: 40px; width: auto">
+          </div>
+          <div style="font-family: Caveat, cursive; font-weight: 700; font-size: 36px; color: #24CC78; line-height: 1">Different journeys. Same people.</div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 14px">
+          <a class="btn btn-green" href="https://wa.me/233596993466?text=hey" style="padding: 14px 22px; font-size: 17px"><img src="assets/wa_ink.svg" alt="" style="display: block; width: 24px; height: 24px">WhatsApp</a>
+          <a href="https://instagram.com/we.are.sonsam" class="btn" style="padding: 14px 22px; font-size: 17px; border: 3px solid #F6F1E7; color: #F6F1E7">Instagram @we.are.sonsam</a>
+          <a href="https://www.tiktok.com/@sonsam.space" class="btn" style="padding: 14px 22px; font-size: 17px; border: 3px solid #F6F1E7; color: #F6F1E7">TikTok</a>
+        </div>
+      </div>
+      <div style="border-top: 2px solid #F6F1E7; opacity: 0.3"></div>
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-weight: 500; font-size: 15px; opacity: 0.8">
+        <div>© 2026 Sonsam</div>
+        <a href="mailto:hello@wearesonsam.org" style="color: #F6F1E7; text-decoration: none">Contact</a>
+      </div>
+      <p style="margin: 0; font-weight: 500; font-size: 15px; line-height: 1.5; opacity: 0.7; max-width: 820px">If you or someone you know is in immediate danger, contact emergency services or your campus counselling centre. Sonsam is a support and learning tool, not an emergency service.</p>
+    </div>
+  </footer>
+
+</div>
+<script>
+(function () {
+  var root = document.querySelector('[data-sonsam-root]');
+  if (!root || !('IntersectionObserver' in window)) return;
+  root.classList.add('motion');
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
+  root.querySelectorAll('.reveal, .reveal-tilt').forEach(function (el) { io.observe(el); });
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (ev) {
+      var t = document.querySelector(a.getAttribute('href'));
+      if (t) { ev.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
